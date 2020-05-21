@@ -5,7 +5,6 @@ import ReservationForm from "./ReservationForm";
 
 
 describe('Reservation Form', () => {
-
 it('should display the reservation inputs', () => {
   const { getByPlaceholderText } = render(<ReservationForm />);
   expect(getByPlaceholderText('Your Name')).toBeInTheDocument();
@@ -14,14 +13,12 @@ it('should display the reservation inputs', () => {
   expect(getByPlaceholderText('Time')).toBeInTheDocument();
 });
 
-it('should display change value of form input to data put into form', () => {
+it('should change value of form input to data put into form', () => {
   const { getByPlaceholderText, getByDisplayValue } = render(<ReservationForm />);
-
   fireEvent.change(getByPlaceholderText('Your Name'), { target: { value: 'Olivia' } });
   fireEvent.change(getByPlaceholderText('Date (mm/dd)'), { target: { value: '02/19' } });
   fireEvent.change(getByPlaceholderText('How Many Guests'), { target: { value: '3' } });
   fireEvent.change(getByPlaceholderText('Time'), { target: { value: '5:30' } });
-
   expect(getByDisplayValue('Olivia')).toBeInTheDocument();
   expect(getByDisplayValue('02/19')).toBeInTheDocument();
   expect(getByDisplayValue('5:30')).toBeInTheDocument();

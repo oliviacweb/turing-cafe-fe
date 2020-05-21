@@ -3,7 +3,8 @@ import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ReservationCard from "./ReservationCard";
 
-it('Should display the correct information on the card', () => {
+describe('Reservation Card', () => {
+  it('Should display the correct information on the card', () => {
   const { getByText } = render(
     <ReservationCard
     name="Olivia"
@@ -17,3 +18,4 @@ it('Should display the correct information on the card', () => {
   expect(getByText('8:30')).toBeInTheDocument();
   expect(getByText('guests: 4')).toBeInTheDocument();
 });
+})
