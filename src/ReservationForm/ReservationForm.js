@@ -8,7 +8,7 @@ class ReservationForm extends Component {
       name: '',
       date: '',
       time: '',
-      number: 0,
+      number: '',
     }
   }
 
@@ -16,6 +16,16 @@ class ReservationForm extends Component {
    this.setState({ [event.target.name]: event.target.value });
  };
 
+  makeReservation = () => {
+    this.setState({
+      id: Date.now(),
+      name: this.state.name,
+      date: this.state.date,
+      time: this.state.time,
+      number: parseInt(this.state.number)
+    });
+    this.props.addReservation(this.state);
+  }
 
   render() {
       return (
