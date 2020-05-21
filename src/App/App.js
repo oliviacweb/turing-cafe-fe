@@ -25,7 +25,8 @@ componentDidMount() {
         <div className='resy-form'>
         </div>
         <div className='resy-container'>
-        <ReservationContainer />
+        <ReservationContainer
+        reservations={this.state.reservations}/>
         </div>
       </div>
     )
